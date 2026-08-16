@@ -10,7 +10,7 @@ typedef std::vector<std::vector<bool>> Matriz;
 class Game {
     private:
     Matriz tablero_;
-    int frame_count_;
+    
     int FILAS, COLUMNAS;
 
     public:

@@ -3,9 +3,6 @@
 using namespace std;
 
 Game::Game() {
-    frame_count_ = 0;
-
-    
     // Falta verificar los errores del usuario (numero negativo, letras,...)
     cout << "Cuantas filas quieres que tenga el tablero: ";
     cin >> FILAS;
@@ -73,14 +70,25 @@ void Game::actualizar_tablero() {
     Matriz copia_ = tablero_;
     /*
     Normas:
-    - Si esta FALSE y tiene 3 vecinos TRUE, nace
-    - Si esta TRUE  y si tiene 3 TRUE vecinos o si tiene 1 TRUE O MENOS
-    - Si esta TRUE vive si TIENE 2 o 3 TRUE Vecinos
+    - Si está FALSE y tiene 3 vecinos TRUE → nace
+    - Si está TRUE y tiene MÁS de 3 vecinos TRUE, o tiene 1 TRUE O MENOS → muere
+    - Si está TRUE, vive si tiene 2 o 3 vecinos TRUE
     */
 
     for(int i = 1; i < FILAS-1; i++) {
         for(int j = 1; j < COLUMNAS-1; j++) {
-
+            int cont = contar_vecnios_vivos_interior(tablero_, i, j);
+            if(tablero_[i][j]) {
+                if(cont > 3 or cont <= 1) copia_[i][j] = false;
+                else copia_[i][j] = true;
+            } else {
+                if(cont == 3) copia_[i][j] = true;
+            }
         }
     }
+
+
+
+    tablero_ = copia_;
+    
 }
