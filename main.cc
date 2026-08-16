@@ -1,5 +1,8 @@
 #include <iostream>
 #include <string>
+#include <thread>
+#include <chrono>
+
 #include "include/game.hh"
 
 using namespace std;
@@ -21,18 +24,19 @@ int main() {
 
     juego.inicializar_tablero();
 
-    cout << "Juego inicializado" << endl;
-   
-    juego.imprimir_tablero();
+    
    
     
 
     for(int i = 0; i < ITERACIONES; i++) {
-        juego.actualizar_tablero();
-        
+        cout << "\033[H";  
+
         juego.imprimir_tablero();
-       
+        cout << endl;
+
+        this_thread::sleep_for(chrono::milliseconds(150));
         
+        juego.actualizar_tablero();    
     }
 
     return 0;
