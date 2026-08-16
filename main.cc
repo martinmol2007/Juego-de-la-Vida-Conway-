@@ -8,7 +8,7 @@
 using namespace std;
 
 const string SEPARADOR(63, '=');
-const int ITERACIONES = 50;
+const int ITERACIONES = 250;
 
 void bienvenida_inicial() {
     cout << SEPARADOR << endl;
