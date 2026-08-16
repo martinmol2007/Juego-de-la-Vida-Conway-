@@ -32,11 +32,26 @@ void Game::imprimir_tablero() const {
 }
 
 void Game::inicializar_tablero() {
+    random_device rd;
+    mt19937 gen(rd());
+
+    uniform_int_distribution<> dis_filas(0, FILAS);
+    uniform_int_distribution<> dis_columnas(0, COLUMNAS);
+
+
     int VECES;
     cout << "Introduce el numero de celdas viva con el que quieres iniciar: ";
     cin >> VECES;
 
+
     for(int i = 0; i < VECES; i++) {
-        
+        int ran_fila = dis_filas(gen);
+        int ran_columna = dis_columnas(gen);
+
+        if(not tablero_[ran_fila][ran_columna]) {
+            tablero_[ran_fila][ran_columna] = true;
+        }
     }
+
+    return;
 }
