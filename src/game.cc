@@ -88,7 +88,5 @@ void Game::actualizar_tablero() {
     }
 
 
-
     tablero_ = copia_;
-    
 }
