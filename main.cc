@@ -8,7 +8,7 @@
 using namespace std;
 
 const string SEPARADOR(63, '=');
-const int ITERACIONES = 10;
+const int ITERACIONES = 50;
 
 void bienvenida_inicial() {
     cout << SEPARADOR << endl;
@@ -29,7 +29,7 @@ int main() {
     
 
     for(int i = 0; i < ITERACIONES; i++) {
-        cout << "\033[H";  
+        cout << "\033[2J\033[H";  
 
         juego.imprimir_tablero();
         cout << endl;

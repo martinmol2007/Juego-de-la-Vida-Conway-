@@ -9,18 +9,43 @@ typedef std::vector<std::vector<bool>> Matriz;
 
 class Game {
     private:
-    Matriz tablero_;
-    
-    int FILAS, COLUMNAS;
+        Matriz tablero_;
+        int FILAS, COLUMNAS;
 
     public:
-    Game();
+        /**
+         * @brief Constructor de Game
+         * 
+         */
+        Game();
 
-    int contar_vecnios_vivos_interior(const Matriz& m, int i, int j) const;
+        /**
+         * @brief Cuenta los vecinos del interior
+         * 
+         * @param m Matriz o tablero
+         * @param i Fila
+         * @param j Columna
+         * @return int Vecinos vivos que tiene
+         */
+        int contar_vecnios_vivos_interior(const Matriz& m, int i, int j) const;
 
-    void inicializar_tablero();
-    void actualizar_tablero();
-    void imprimir_tablero() const;
+        /**
+         * @brief Inicializa el tablero con celdas vivas aleatoriamente
+         * 
+         */
+        void inicializar_tablero();
+
+        /**
+         * @brief Actualiza el tablero
+         * 
+         */
+        void actualizar_tablero();
+
+        /**
+         * @brief Imprime el tablero por pantalla
+         * 
+         */
+        void imprimir_tablero() const;
 };
 
 #endif
