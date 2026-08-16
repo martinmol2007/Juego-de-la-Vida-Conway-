@@ -17,7 +17,13 @@ void bienvenida_inicial() {
 }
 
 int main() {
+    Game juego;
 
+    juego.inicializar_tablero();
+
+    cout << "Juego inicializado" << endl;
+
+    juego.imprimir_tablero();
 
 
     return 0;

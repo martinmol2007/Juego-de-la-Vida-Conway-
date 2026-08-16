@@ -26,7 +26,6 @@ void Game::imprimir_tablero() const {
         }
         cout << endl;
     }
-    cout << endl;
 
     return;
 }
@@ -35,8 +34,8 @@ void Game::inicializar_tablero() {
     random_device rd;
     mt19937 gen(rd());
 
-    uniform_int_distribution<> dis_filas(0, FILAS);
-    uniform_int_distribution<> dis_columnas(0, COLUMNAS);
+    uniform_int_distribution<> dis_filas(0, FILAS-1);
+    uniform_int_distribution<> dis_columnas(0, COLUMNAS-1);
 
 
     int VECES;

@@ -17,7 +17,7 @@ class Game {
     Game();
 
     void inicializar_tablero();
-    // void actualizar_tablero(Matriz copia_tablero);
+    void actualizar_tablero(Matriz copia_tablero);
     void imprimir_tablero() const;
 };
 
