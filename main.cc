@@ -22,17 +22,17 @@ int main() {
     juego.inicializar_tablero();
 
     cout << "Juego inicializado" << endl;
-    cout << SEPARADOR << endl;
+   
     juego.imprimir_tablero();
-    cout << SEPARADOR << endl;
-    cout << endl;
+   
+    
 
     for(int i = 0; i < ITERACIONES; i++) {
         juego.actualizar_tablero();
-        cout << SEPARADOR << endl;
+        
         juego.imprimir_tablero();
-        cout << SEPARADOR << endl;
-        cout << endl;
+       
+        
     }
 
     return 0;
