@@ -16,8 +16,10 @@ class Game {
     public:
     Game();
 
+    int contar_vecnios_vivos_interior(const Matriz& m, int i, int j) const;
+
     void inicializar_tablero();
-    void actualizar_tablero(Matriz copia_tablero);
+    void actualizar_tablero();
     void imprimir_tablero() const;
 };
 

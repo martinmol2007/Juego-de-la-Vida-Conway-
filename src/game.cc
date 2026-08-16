@@ -54,3 +54,33 @@ void Game::inicializar_tablero() {
 
     return;
 }
+
+int Game::contar_vecnios_vivos_interior(const Matriz& m, int i, int j) const {
+    int cont = 0;
+    if(m[i+1][j]) cont++;
+    if(m[i+1][j+1]) cont++;
+    if(m[i-1][j]) cont++;
+    if(m[i-1][j-1]) cont++;
+    if(m[i][j-1]) cont++;
+    if(m[i][j+1]) cont++;
+    if(m[i-1][j+1]) cont++;
+    if(m[i+1][j-1]) cont++;
+
+    return cont;
+}
+
+void Game::actualizar_tablero() {
+    Matriz copia_ = tablero_;
+    /*
+    Normas:
+    - Si esta FALSE y tiene 3 vecinos TRUE, nace
+    - Si esta TRUE  y si tiene 3 TRUE vecinos o si tiene 1 TRUE O MENOS
+    - Si esta TRUE vive si TIENE 2 o 3 TRUE Vecinos
+    */
+
+    for(int i = 1; i < FILAS-1; i++) {
+        for(int j = 1; j < COLUMNAS-1; j++) {
+
+        }
+    }
+}
