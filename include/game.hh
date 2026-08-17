@@ -29,6 +29,8 @@ class Game {
          */
         int contar_vecnios_vivos_interior(const Matriz& m, int i, int j) const;
 
+        int contar_vecinos_vivos_esquinas(const Matriz& m, int i, int j) const;
+
         /**
          * @brief Inicializa el tablero con celdas vivas aleatoriamente
          * 
@@ -46,7 +48,7 @@ class Game {
          * 
          */
         void imprimir_tablero() const;
-        
+
 };
 
 #endif

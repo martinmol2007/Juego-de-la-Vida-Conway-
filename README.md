@@ -8,3 +8,5 @@
     */
 
 MINIMO NUMERO DE FIALS Y COLUMNAS 4
+
+Cuando pida el numero de filas y columnas, no introducir letras

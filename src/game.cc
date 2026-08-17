@@ -94,6 +94,37 @@ int Game::contar_vecnios_vivos_interior(const Matriz& m, int i, int j) const {
     return cont;
 }
 
+int Game::contar_vecinos_vivos_esquinas(const Matriz& m, int i, int j) const{
+    int cont = 0;
+    
+    if(i == 0 && j == 0) {
+        // Esquina Superior Izquierda
+        if(m[0][1]) cont++;
+        if(m[1][0]) cont++;
+        if(m[1][1]) cont++;
+    }
+    else if(i == 0 && j == COLUMNAS-1) {
+        // Esquina Superior Derecha
+        if(m[0][COLUMNAS-2]) cont++;
+        if(m[1][COLUMNAS-1]) cont++;
+        if(m[1][COLUMNAS-2]) cont++;
+    }
+    else if(i == FILAS-1 && j == 0) {
+        // Esquina Inferior Izquierda
+        if(m[FILAS-2][0]) cont++;
+        if(m[FILAS-1][1]) cont++;
+        if(m[FILAS-2][1]) cont++;
+    }
+    else {
+        // Esquina Inferior Derecha
+        if(m[FILAS-1][COLUMNAS-2]) cont++;
+        if(m[FILAS-2][COLUMNAS-1]) cont++;
+        if(m[FILAS-2][COLUMNAS-2]) cont++;
+    }
+
+    return cont;
+}
+
 void Game::actualizar_tablero() {
     Matriz copia_ = tablero_;
     
@@ -109,6 +140,8 @@ void Game::actualizar_tablero() {
             }
         }
     }
+
+
 
     // Actualiza todo el tablero
     tablero_ = copia_;
