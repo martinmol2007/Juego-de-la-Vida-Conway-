@@ -7,8 +7,10 @@
 
 using namespace std;
 
-const string SEPARADOR(63, '=');
+// NUMERO DE ITERACIONES QUE DEL JUEGO
 const int ITERACIONES = 250;
+
+const string SEPARADOR(63, '=');
 
 void bienvenida_inicial() {
     cout << SEPARADOR << endl;
@@ -20,22 +22,24 @@ void bienvenida_inicial() {
 }
 
 int main() {
+    // Crea el objeto juego
     Game juego;
 
+    // Inicializa el tablero
     juego.inicializar_tablero();
 
-    
-   
-    
 
     for(int i = 0; i < ITERACIONES; i++) {
+        // Hace scroll hacia arriba (para que se vea como animacion)
         cout << "\033[2J\033[H";  
 
+        // Imprime el tablero
         juego.imprimir_tablero();
-        cout << endl;
 
+        // Tiempo entre actualizacion de tablero
         this_thread::sleep_for(chrono::milliseconds(150));
         
+        // Actualiza el tablero
         juego.actualizar_tablero();    
     }
 

@@ -46,6 +46,7 @@ class Game {
          * 
          */
         void imprimir_tablero() const;
+        
 };
 
 #endif
