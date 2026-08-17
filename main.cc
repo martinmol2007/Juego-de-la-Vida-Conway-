@@ -7,15 +7,15 @@
 
 using namespace std;
 
-// NUMERO DE ITERACIONES QUE DEL JUEGO
+// NÚMERO DE ITERACIONES DEL JUEGO
 const long long ITERACIONES = 100;
 
 const string SEPARADOR(63, '=');
 
 void bienvenida_inicial() {
     cout << SEPARADOR << endl;
-    cout << "Bienvendio al Juego de la Vida escrito en C++!" << endl;
-    cout << "A continuacion, se iniciara el juego..." << endl;
+    cout << "Bienvenido al Juego de la Vida escrito en C++!" << endl;
+    cout << "A continuación, se iniciará el juego..." << endl;
     cout << SEPARADOR << endl;
 
     return;
@@ -30,13 +30,13 @@ int main() {
 
 
     for(int i = 0; i < ITERACIONES; i++) {
-        // Hace scroll hacia arriba (para que se vea como animacion)
+        // Hace scroll hacia arriba (para que se vea como animación)
         cout << "\033[2J\033[H";  
 
         // Imprime el tablero
         juego.imprimir_tablero();
 
-        // Tiempo entre actualizacion de tablero
+        // Tiempo entre actualización de tablero
         this_thread::sleep_for(chrono::milliseconds(150));
         
         // Actualiza el tablero

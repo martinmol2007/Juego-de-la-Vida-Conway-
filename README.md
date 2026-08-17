@@ -7,6 +7,6 @@
     - Si está TRUE, vive si tiene 2 o 3 vecinos TRUE
     */
 
-MINIMO NUMERO DE FIALS Y COLUMNAS 4
+MÍNIMO NÚMERO DE FILAS Y COLUMNAS 4
 
-Cuando pida el numero de filas y columnas, no introducir letras
+Cuando pida el número de filas y columnas, no introducir letras

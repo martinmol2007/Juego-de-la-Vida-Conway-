@@ -37,7 +37,7 @@ Game::Game() {
 }
 
 void Game::imprimir_tablero() const {
-    // Si la celula esta viva, imprime X, si esta muerta, un espeacio
+    // Si la célula está viva, imprime X, si está muerta, un espacio
     for(int i = 0; i < FILAS; i++) {
         for(int j = 0; j < COLUMNAS; j++) {
             if(tablero_[i][j]) {
@@ -53,17 +53,17 @@ void Game::imprimir_tablero() const {
 }
 
 void Game::inicializar_tablero() {
-    // Generar un numero random dentro de los parametros de las FILAS y COLUMNAS
+    // Generar un número random dentro de los parámetros de las FILAS y COLUMNAS
     random_device rd;
     mt19937 gen(rd());
 
     uniform_int_distribution<> dis_filas(0, FILAS-1);
     uniform_int_distribution<> dis_columnas(0, COLUMNAS-1);
 
-    // Celdas vivas con las que quieers iniciar (puede que se repitan y haya menos de las puestas), ya que
+    // Celdas vivas con las que quieres iniciar (puede que se repitan y haya menos de las puestas), ya que
     // se genera completamente aleatoriamente.
     int VECES;
-    cout << "Introduce el numero de celdas viva con el que quieres iniciar: ";
+    cout << "Introduce el número de celdas vivas con el que quieres iniciar: ";
     cin >> VECES;
 
     // Rellena el tablero
@@ -79,8 +79,8 @@ void Game::inicializar_tablero() {
     return;
 }
 
-int Game::contar_vecnios_vivos_interior(const Matriz& m, int i, int j) const {
-    // Cuanta los vecinos vivos (de las celdas centrales) 
+int Game::contar_vecinos_vivos_interior(const Matriz& m, int i, int j) const {
+    // Cuenta los vecinos vivos (de las celdas centrales)
     int cont = 0;
     if(m[i+1][j]) cont++;
     if(m[i+1][j+1]) cont++;
@@ -180,7 +180,7 @@ void Game::actualizar_tablero() {
     // Actualiza las celulas centrales
     for(int i = 1; i < FILAS-1; i++) {
         for(int j = 1; j < COLUMNAS-1; j++) {
-            int cont = contar_vecnios_vivos_interior(tablero_, i, j);
+            int cont = contar_vecinos_vivos_interior(tablero_, i, j);
             if(tablero_[i][j]) {
                 if(cont > 3 or cont <= 1) copia_[i][j] = false;
                 else copia_[i][j] = true;

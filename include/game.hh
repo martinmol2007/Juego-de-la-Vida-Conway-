@@ -19,7 +19,7 @@ class Game {
          * @param i Fila
          * @param j Columna
          * @param cont Contador de vecinos vivos
-         * @param viva Si la celula actual esta viva
+         * @param viva Si la célula actual está viva
          */
         void actualizar_tablero_esquinas(Matriz& m, int i, int j, int cont, bool viva);
     public:
@@ -37,31 +37,31 @@ class Game {
          * @param j Columna
          * @return int Vecinos vivos que tiene
          */
-        int contar_vecnios_vivos_interior(const Matriz& m, int i, int j) const;
+        int contar_vecinos_vivos_interior(const Matriz& m, int i, int j) const;
 
         /**
-         * @brief Cuenta el numero de vecinos vivos en las esquinas
-         * 
+         * @brief Cuenta el número de vecinos vivos en las esquinas
+         *
          * @param m Tablero a contar
          * @param i Fila
          * @param j Columna
-         * @return int Numero de vecinos vivos
+         * @return int Número de vecinos vivos
          */
         int contar_vecinos_vivos_esquinas(const Matriz& m, int i, int j) const;
 
         /**
-         * @brief Cuetna el numero de vecinos vivos en el anillo exterior horizontal
-         * 
+         * @brief Cuenta el número de vecinos vivos en el anillo exterior horizontal
+         *
          * @param m Tablero a contar
          * @param i Fila
          * @param j Columna
          * @param arriba Si es arriba o abajo
-         * @return int Numero de vecnos vivos
+         * @return int Número de vecinos vivos
          */
         int contar_vecinos_vivos_horizontal(const Matriz& m, int i, int j, bool arriba) const;
 
         /**
-         * @brief Cuenta el numero de vecnios vivos en el anillo exterior vertical
+         * @brief Cuenta el número de vecinos vivos en el anillo exterior vertical
          * 
          * @param m Tablero a contar
          * @param i Fila
