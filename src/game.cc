@@ -187,7 +187,26 @@ void Game::actualizar_tablero() {
     int cont_eid = contar_vecinos_vivos_esquinas(tablero_, FILAS-1, COLUMNAS-1);
     actualizar_tablero_esquinas(copia_, FILAS-1, COLUMNAS-1, cont_eid, tablero_[FILAS-1][COLUMNAS-1]);
 
-    // Actualizar Anillo Exterior (Sin contar Esquinas)
+    // Actualizar Anillo Exterior Horizontal (Sin contar Esquinas)
+    for(int j = 1; j < COLUMNAS-1; j++) {
+        int cont = contar_vecinos_vivos_horizontal(tablero_, 0, j, true);
+        if(tablero_[0][j]) {
+            if(cont > 3 or cont <= 1) copia_[0][j] = false;
+            else copia_[0][j] = true;
+        } else {
+            if(cont == 3) copia_[0][j] = true;
+        }
+    }
+
+    for(int j = 1; j < COLUMNAS-1; j++) {
+        int cont = contar_vecinos_vivos_horizontal(tablero_, FILAS-1, j, true);
+        if(tablero_[FILAS-1][j]) {
+            if(cont > 3 or cont <= 1) copia_[FILAS-1][j] = false;
+            else copia_[FILAS-1][j] = true;
+        } else {
+            if(cont == 3) copia_[FILAS-1][j] = true;
+        }
+    }
 
 
 
