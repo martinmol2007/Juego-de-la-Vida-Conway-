@@ -199,7 +199,7 @@ void Game::actualizar_tablero() {
     }
 
     for(int j = 1; j < COLUMNAS-1; j++) {
-        int cont = contar_vecinos_vivos_horizontal(tablero_, FILAS-1, j, true);
+        int cont = contar_vecinos_vivos_horizontal(tablero_, FILAS-1, j, false);
         if(tablero_[FILAS-1][j]) {
             if(cont > 3 or cont <= 1) copia_[FILAS-1][j] = false;
             else copia_[FILAS-1][j] = true;
