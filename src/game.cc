@@ -125,6 +125,22 @@ int Game::contar_vecinos_vivos_esquinas(const Matriz& m, int i, int j) const{
     return cont;
 }
 
+int Game::contar_vecinos_vivos_horizontal(const Matriz& m, int i, int j, bool arriba) const {
+    int cont = 0;
+
+    int DIRECCION;
+    if(arriba) DIRECCION = 1;
+    else DIRECCION = -1;
+
+    if(m[i][j+1]) cont++;
+    if(m[i][j-1]) cont++;
+    if(m[i+DIRECCION][j]) cont++;
+    if(m[i+DIRECCION][j+1]) cont++;
+    if(m[i+DIRECCION][j-1]) cont++;
+
+    return cont;
+}
+
 void Game::actualizar_tablero_esquinas(Matriz& m, int i, int j, int cont, bool viva) {
     /*
     Si está FALSE y tiene 3 vecinos TRUE → nace
