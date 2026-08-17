@@ -12,6 +12,7 @@ class Game {
         Matriz tablero_;
         int FILAS, COLUMNAS;
 
+        void actualizar_vecinos_vivos_esquinas(Matriz& m, int i, int j, int cont, bool viva);
     public:
         /**
          * @brief Constructor de Game

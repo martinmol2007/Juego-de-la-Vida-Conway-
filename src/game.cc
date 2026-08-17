@@ -125,6 +125,23 @@ int Game::contar_vecinos_vivos_esquinas(const Matriz& m, int i, int j) const{
     return cont;
 }
 
+void Game::actualizar_vecinos_vivos_esquinas(Matriz& m, int i, int j, int cont, bool viva) {
+    /*
+    Si está FALSE y tiene 3 vecinos TRUE → nace
+    Si está TRUE y tiene MÁS de 3 vecinos TRUE, o tiene 1 TRUE O MENOS → muere
+    Si está TRUE, vive si tiene 2 o 3 vecinos TRUE
+    */
+
+    if(viva) {
+        if(cont > 3 or cont <= 1) m[i][j] = false;
+        else m[i][j] = true;
+    } else {
+        if(cont == 3) m[i][j] = true;
+    }
+
+    return;
+}
+
 void Game::actualizar_tablero() {
     Matriz copia_ = tablero_;
     
@@ -141,6 +158,21 @@ void Game::actualizar_tablero() {
         }
     }
 
+    // Actualizar las esquinas
+    int cont_esi = contar_vecinos_vivos_esquinas(tablero_, 0, 0);
+    actualizar_vecinos_vivos_esquinas(copia_, 0, 0, cont_esi, tablero_[0][0]);
+
+    int cont_esd = contar_vecinos_vivos_esquinas(tablero_, 0, COLUMNAS-1);
+    actualizar_vecinos_vivos_esquinas(copia_, 0, COLUMNAS-1, cont_esd, tablero_[0][COLUMNAS-1]);
+
+    int cont_eii = contar_vecinos_vivos_esquinas(tablero_, FILAS-1, 0);
+    actualizar_vecinos_vivos_esquinas(copia_, FILAS-1, 0, cont_eii, tablero_[FILAS-1][0]);
+
+    int cont_eid = contar_vecinos_vivos_esquinas(tablero_, FILAS-1, COLUMNAS-1);
+    actualizar_vecinos_vivos_esquinas(copia_, FILAS-1, COLUMNAS-1, cont_eid, tablero_[FILAS-1][COLUMNAS-1]);
+
+    // Actualizar Anillo Exterior (Sin contar Esquinas)
+    
 
 
     // Actualiza todo el tablero
