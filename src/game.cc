@@ -141,6 +141,22 @@ int Game::contar_vecinos_vivos_horizontal(const Matriz& m, int i, int j, bool ar
     return cont;
 }
 
+int Game::contar_vecinos_vivos_vertical(const Matriz& m, int i, int j, bool izquierda) const {
+    int cont = 0;
+
+    int DIRECCION;
+    if(izquierda) DIRECCION = 1;
+    else DIRECCION = -1;
+
+    if(m[i-1][j]) cont++;
+    if(m[i+1][j]) cont++;
+    if(m[i][j+DIRECCION]) cont++;
+    if(m[i-1][j+DIRECCION]) cont++;
+    if(m[i+1][j+DIRECCION]) cont++;
+
+    return cont;
+}
+
 void Game::actualizar_tablero_esquinas(Matriz& m, int i, int j, int cont, bool viva) {
     /*
     Si está FALSE y tiene 3 vecinos TRUE → nace
@@ -208,7 +224,26 @@ void Game::actualizar_tablero() {
         }
     }
 
+    // Actualizar Anillo Exterior Vertical (Sin contar esquinas)
+    for(int i = 1; i < FILAS-1; i++) {
+        int cont = contar_vecinos_vivos_vertical(tablero_, i, 0, true);
+        if(tablero_[i][0]) {
+            if(cont > 3 or cont <= 1) copia_[i][0] = false;
+            else copia_[i][0] = true;
+        } else {
+            if(cont == 3) copia_[i][0] = true;
+        }
+    }
 
+    for(int i = 1; i < FILAS-1; i++) {
+        int cont = contar_vecinos_vivos_vertical(tablero_, i, COLUMNAS-1, false);
+        if(tablero_[i][COLUMNAS-1]) {
+            if(cont > 3 or cont <= 1) copia_[i][COLUMNAS-1] = false;
+            else copia_[i][COLUMNAS-1] = true;
+        } else {
+            if(cont == 3) copia_[i][COLUMNAS-1] = true;
+        }
+    }
 
     // Actualiza todo el tablero
     tablero_ = copia_;

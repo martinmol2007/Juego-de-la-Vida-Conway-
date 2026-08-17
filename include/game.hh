@@ -49,7 +49,27 @@ class Game {
          */
         int contar_vecinos_vivos_esquinas(const Matriz& m, int i, int j) const;
 
+        /**
+         * @brief Cuetna el numero de vecinos vivos en el anillo exterior horizontal
+         * 
+         * @param m Tablero a contar
+         * @param i Fila
+         * @param j Columna
+         * @param arriba Si es arriba o abajo
+         * @return int Numero de vecnos vivos
+         */
         int contar_vecinos_vivos_horizontal(const Matriz& m, int i, int j, bool arriba) const;
+
+        /**
+         * @brief Cuenta el numero de vecnios vivos en el anillo exterior vertical
+         * 
+         * @param m Tablero a contar
+         * @param i Fila
+         * @param j Columna
+         * @param izquierda Si es a la izquierda o derecha
+         * @return int Numero de vecinos vivos
+         */
+        int contar_vecinos_vivos_vertical(const Matriz& m, int i, int j, bool izquierda) const;
 
         /**
          * @brief Inicializa el tablero con celdas vivas aleatoriamente
