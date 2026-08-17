@@ -8,7 +8,7 @@
 using namespace std;
 
 // NUMERO DE ITERACIONES QUE DEL JUEGO
-const int ITERACIONES = 250;
+const int ITERACIONES = 100;
 
 const string SEPARADOR(63, '=');
 
