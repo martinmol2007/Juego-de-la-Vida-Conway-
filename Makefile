@@ -1,13 +1,13 @@
 CXX = g++
 CXXFLAGS = -Wall -Wextra
 
-run: main
-	./main
+run: main.exe
+	./main.exe
 
-main: main.cc src/game.cc
-	$(CXX) $(CXXFLAGS) main.cc src/game.cc -o main
+main.exe: main.cc src/game.cc include/game.hh
+	$(CXX) $(CXXFLAGS) main.cc src/game.cc -o main.exe
 
-clean: main
-	rm -f main
+clean:
+	rm -f main.exe
 
 .PHONY: run clean
