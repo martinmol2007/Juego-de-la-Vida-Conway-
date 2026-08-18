@@ -3,7 +3,7 @@
 using namespace std;
 
 Game::Game() {
-    cout << "Cuantas filas quieres que tenga el tablero: ";
+    cout << "Cuántas filas quieres que tenga el tablero: ";
 
     int numero_filas;
     bool filas_ok = false;
@@ -14,11 +14,11 @@ Game::Game() {
             FILAS = numero_filas;
             filas_ok = true;
         } else {
-            cout << "Error, introduce el numero de filas que quieres: ";
+            cout << "Error, introduce el número de filas que quieres: ";
         }
     }
 
-    cout << "Cuantas columnas quieres que tenga el tablero: ";
+    cout << "Cuántas columnas quieres que tenga el tablero: ";
 
     int numero_columnas;
     bool columnas_ok = false;
@@ -29,7 +29,7 @@ Game::Game() {
             COLUMNAS = numero_columnas;
             columnas_ok = true;
         } else {
-            cout << "Error, introduce el numero de columnas que quieres: ";
+            cout << "Error, introduce el número de columnas que quieres: ";
         }
     }
 
